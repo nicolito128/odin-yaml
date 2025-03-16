@@ -2,4 +2,11 @@
 name: test
 desc: "A description."
 info: 'Data here.'
+list:
+  - Item 1
+  - Item 2
+  - 
+    name: item 3
+    vip: true
+pi: 3.14159
 ...

@@ -15,7 +15,11 @@ main :: proc() {
     context.allocator = vmem.arena_allocator(&arena)
 
     data := lexer.read_file("./ex.yaml") or_else panic("read file error!")
-    tokens := lexer.tokenize(data) or_else panic("tokenize error!")
+    
+    t: lexer.Tokenizer
+    lexer.tokenizer_init(&t, data)
+
+    tokens := lexer.tokenizer_parse(&t) or_else panic("tokenizer parsing error!")
 
     fmt.println(tokens)
 }
